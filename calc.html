@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="" />
     <link rel="stylesheet" href="calc.css">
-    <title>Document</title>
+    <title>Calculadora</title>
+    <meta property="og:title" content="calculadora">
+    <meta property="og:description"
+        content="esto es una pequeña calculadora que te puede ayudar con algunas operaciones aritmeticas">
+    <meta property="og:image" content="./calculadora.png">
+    <meta name="google" content="notranslate">
 </head>
 
 <body>
@@ -70,7 +76,7 @@
                     </div>
 
                     <div class="container4__cuatro">
-                        <div >mr</div>
+                        <div>mr</div>
                         <div>x</div>
                         <div class="boton">-</div>
                         <div class="boton">+</div>
@@ -96,62 +102,62 @@
         const memoryClear = document.querySelector("div > div.container4__uno > div:nth-child(1)")
         const emeMenos = document.querySelector("div > div.container4__tres > div:nth-child(1)")
 
-        for(let i = 0;i<boton.length;i++){
-            boton[i].addEventListener("click",e=>{
+        for (let i = 0; i < boton.length; i++) {
+            boton[i].addEventListener("click", e => {
                 numero = e.target.textContent
 
                 input.textContent += numero
                 a = eval(input.textContent)
-            
-               
+
+
             })
         }
 
-        
-        botonIgual.addEventListener("click",e=>{
+
+        botonIgual.addEventListener("click", e => {
             input2.textContent = a
         })
-       
+
         memoria = null
-        emeMas.addEventListener("click",e=>{
+        emeMas.addEventListener("click", e => {
             memoria = input.textContent
 
         })
 
         //cortamos el texto
-        function cortar(texto,num){
+        function cortar(texto, num) {
             data = ""
-            for(let i = 0;i<texto.length-num;i++){
+            for (let i = 0; i < texto.length - num; i++) {
                 data += texto[i]
             }
 
             return data
         }
-  
+
         //por cada vez que se de click en x esto borrara algo
-        borrarX.addEventListener("click",e=>{
+        borrarX.addEventListener("click", e => {
             b = input.textContent
-            v = cortar(b,1)
+            v = cortar(b, 1)
             input.textContent = v
         })
 
 
-        clear.addEventListener("click",e=>{
+        clear.addEventListener("click", e => {
             input.textContent = ""
         })
 
-        memoryClear.addEventListener("click",e=>{
+        memoryClear.addEventListener("click", e => {
             memoria = 0
         })
 
-        emeErre.addEventListener("click",e=>{
+        emeErre.addEventListener("click", e => {
             input.textContent = memoria
         })
 
         //falta arreglar esto el del menos..
-        emeMenos.addEventListener("click",e=>{
-            memoria = cortar(memoria.toString(),1)
-    
+        emeMenos.addEventListener("click", e => {
+            memoria = cortar(memoria.toString(), 1)
+
         })
     </script>
 </body>
